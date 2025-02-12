@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: aaf4749e1c423d040bf3ca21ad371192
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 282856
+  packageName: Tile Match | Extra Levels
+  packageVersion: 1.0.1
+  assetPath: Assets/Tile Match Extra Levels/Scripts/Editor/LevelImporterEditor.cs
+  uploadId: 706148
