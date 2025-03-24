@@ -58,7 +58,8 @@ namespace Watermelon
                 var slot = slots[i];
 
                 var position = slot.transform.position.SetX(-LevelScaler.SlotSize.x * 7f / 2f + (i + 0.5f) * LevelScaler.SlotSize.x);
-                var scale = Vector3.one * LevelScaler.SlotSize;
+                var scale = Vector3.one * LevelScaler.SlotSize * 1.2f;
+
 
                 slot.Init(i, position, scale);
             }
