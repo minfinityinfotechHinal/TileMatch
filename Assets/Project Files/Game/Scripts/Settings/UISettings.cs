@@ -79,7 +79,7 @@ namespace Watermelon
                 }
             }
 
-            panelRectTransform.sizeDelta = new Vector2(panelRectTransform.sizeDelta.x, height);
+            //panelRectTransform.sizeDelta = new Vector2(panelRectTransform.sizeDelta.x, height);
         }
 
         public void OnCloseButtonClicked()

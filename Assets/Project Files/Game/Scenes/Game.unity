@@ -2187,7 +2187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -27.9, y: -27.7}
+  m_AnchoredPosition: {x: -27.899994, y: -27.700012}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1985270559
@@ -5808,8 +5808,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -4019631421148595319, guid: 252b29164b743450e9260b75a23d5b66,
-        type: 2}
+      objectReference: {fileID: 2100000, guid: f800a20204eed4bbe97e5973ad281e7a, type: 2}
     - target: {fileID: 655719112430613438, guid: 5f1de49413914ae44bd46127a62520e0,
         type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -6340,8 +6339,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -4019631421148595319, guid: 252b29164b743450e9260b75a23d5b66,
-        type: 2}
+      objectReference: {fileID: 2100000, guid: f800a20204eed4bbe97e5973ad281e7a, type: 2}
     - target: {fileID: 4520920107577687711, guid: 5f1de49413914ae44bd46127a62520e0,
         type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -6388,8 +6386,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -4019631421148595319, guid: 252b29164b743450e9260b75a23d5b66,
-        type: 2}
+      objectReference: {fileID: 2100000, guid: f800a20204eed4bbe97e5973ad281e7a, type: 2}
     - target: {fileID: 5029797139745545734, guid: 5f1de49413914ae44bd46127a62520e0,
         type: 3}
       propertyPath: m_enableAutoSizing
@@ -6546,8 +6543,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -4019631421148595319, guid: 252b29164b743450e9260b75a23d5b66,
-        type: 2}
+      objectReference: {fileID: 2100000, guid: f800a20204eed4bbe97e5973ad281e7a, type: 2}
     - target: {fileID: 8416150555223508935, guid: 5f1de49413914ae44bd46127a62520e0,
         type: 3}
       propertyPath: m_hasFontAssetChanged
