@@ -11,7 +11,7 @@ namespace Watermelon
 {
     public class GameController : MonoBehaviour
     {
-        private static GameController gameController;
+        public static GameController gameController;
 
         [DrawReference]
         [SerializeField] GameData data;
@@ -60,7 +60,13 @@ namespace Watermelon
 
         private void Start()
         {
-            ITutorial tutorial = TutorialController.GetTutorial(TutorialID.FirstLevel);
+           UIController.ShowPage<StartScreenPage>();
+        }
+
+
+        public void StartGame()
+        {
+             ITutorial tutorial = TutorialController.GetTutorial(TutorialID.FirstLevel);
             if (data.ShowTutorial && !tutorial.IsFinished)
             {
                 // Start first level tutorial
