@@ -835,7 +835,7 @@ MonoBehaviour:
     - line: '|   ps4attribVROutputEnabled: 0'
     - line: '|   monoEnv: '
     - line: '|   splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid:
-        254553a6310044a24b1030c9c9e492ca,    type: 3}'
+        8babfa997e37a42999cbeca4cd91d025,    type: 3}'
     - line: '|   splashScreenBackgroundSourcePortrait: {instanceID: 0}'
     - line: '|   blurSplashScreenBackground: 1'
     - line: '|   spritePackerPolicy: '
