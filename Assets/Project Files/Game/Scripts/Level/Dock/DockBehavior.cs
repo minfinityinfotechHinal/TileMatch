@@ -588,7 +588,7 @@ namespace Watermelon
             newSlot.Init(7, position, scale);
 
             newSlot.transform.localScale = Vector3.zero;
-            newSlot.transform.DOScale(1, 0.1f, 0.025f);
+            newSlot.transform.DOScale(1.2f, 0.1f, 0.025f);
 
             slots.Add(newSlot);
 

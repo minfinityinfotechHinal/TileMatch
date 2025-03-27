@@ -49,7 +49,7 @@ namespace Watermelon
             tempSlot.SlotablePos = new GameObject("Slotable Position").transform;
             tempSlot.SlotablePos.SetParent(tempSlot.transform);
             tempSlot.SlotablePos.position = lastSlot.SlotablePos.position + (lastSlot.SlotablePos.position - prevLastSlot.SlotablePos.position);
-            tempSlot.Scale = Vector3.one;
+            tempSlot.Scale = new Vector3(1.2f,1.2f,1.2f);
 
             tempSlot.spriteSortOrder = lastSlot.spriteSortOrder + 5;
 
