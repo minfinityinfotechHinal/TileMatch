@@ -85,7 +85,7 @@ namespace Watermelon
             gameObject.SetActive(true);
 
             transform.localScale = Vector3.zero;
-            transform.DOScale(1.0f, 0.3f).SetEasing(Ease.Type.BackOut);
+            transform.DOScale(1.2f, 0.2f).SetEasing(Ease.Type.BackOut);
 
             Redraw();
         }
