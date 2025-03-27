@@ -1286,15 +1286,15 @@ MonoBehaviour:
     collectionId: 0
   - backgroundPrefab: {fileID: 6236222446239046324, guid: 08298627415c7904f8d0f8d84998f60d,
       type: 3}
-    availableFromLevel: 10
+    availableFromLevel: 11
     collectionId: 0
   - backgroundPrefab: {fileID: 6236222446239046324, guid: ee94d214c118d0d499b54243249a0f89,
       type: 3}
-    availableFromLevel: 20
+    availableFromLevel: 21
     collectionId: 0
   - backgroundPrefab: {fileID: 6236222446239046324, guid: 18113c66fe43c4b44b0dada6de6d396c,
       type: 3}
-    availableFromLevel: 30
+    availableFromLevel: 31
     collectionId: 0
   selectedColor: {r: 0.20392157, g: 1, b: 0, a: 1}
   unselectedColor: {r: 1, g: 1, b: 1, a: 0}

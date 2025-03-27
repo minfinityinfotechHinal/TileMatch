@@ -51,7 +51,6 @@ MonoBehaviour:
     particleName: Link Shatter
     particlePrefab: {fileID: 2477757985652971514, guid: ed73f4b8361a7a64b9d9ba565e8614d7,
       type: 3}
-    specialBehaviour: 0
 --- !u!1 &4075092632421330986
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +100,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -130,7 +132,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1377778, y: 1.1377778}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
