@@ -256,7 +256,7 @@ PlayerSettings:
   clonedFromGUID: c4977c4147a92764dbeadb4a98362442
   templatePackageId: 
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  useCustomMainManifest: 1
+  useCustomMainManifest: 0
   useCustomLauncherManifest: 0
   useCustomMainGradleTemplate: 0
   useCustomLauncherGradleManifest: 0
@@ -955,11 +955,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 79575095-431f-4cd7-9e4c-77e0458c6b0d
+  cloudProjectId: 7ffc8012-4aba-4d0d-aae1-cacd818b96d9
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Watermelon Core
-  organizationId: minfinityinfotech
+  projectName: TileMatch
+  organizationId: fabulousfungames
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
   hmiLoadingImage: {fileID: 0}

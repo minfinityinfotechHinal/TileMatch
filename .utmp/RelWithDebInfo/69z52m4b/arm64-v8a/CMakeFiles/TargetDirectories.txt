@@ -1,0 +1,5 @@
+/Users/mfinity/Desktop/Hinal/Unity Projects/TileMatch/.utmp/RelWithDebInfo/69z52m4b/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/mfinity/Desktop/Hinal/Unity Projects/TileMatch/.utmp/RelWithDebInfo/69z52m4b/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/mfinity/Desktop/Hinal/Unity Projects/TileMatch/.utmp/RelWithDebInfo/69z52m4b/arm64-v8a/GameActivity/CMakeFiles/game.dir
+/Users/mfinity/Desktop/Hinal/Unity Projects/TileMatch/.utmp/RelWithDebInfo/69z52m4b/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+/Users/mfinity/Desktop/Hinal/Unity Projects/TileMatch/.utmp/RelWithDebInfo/69z52m4b/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
