@@ -126,7 +126,7 @@ public class StartScreenAnimation : MonoBehaviour
     }
 
     // Stop all animations
-    void StopAnimations()
+    public void StopAnimations() // Made public for external access
     {
         if (lightCoroutine != null) StopCoroutine(lightCoroutine);
         if (textCoroutine != null) StopCoroutine(textCoroutine);
@@ -141,5 +141,11 @@ public class StartScreenAnimation : MonoBehaviour
         tile.localPosition = tile.localPosition; // Stop at last position
 
         Debug.Log("All animations stopped!");
+    }
+
+    // Update function to sync animation with loading progress
+    public void UpdateAnimation(float progress)
+    {
+       // loadingText.text = $"Loading {Mathf.RoundToInt(progress * 100)}%";
     }
 }
