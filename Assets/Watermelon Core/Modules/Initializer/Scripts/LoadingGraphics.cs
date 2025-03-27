@@ -47,13 +47,28 @@ namespace Watermelon
             }
         }
 
-        private void OnLoadingFinished()
+       private void OnLoadingFinished()
         {
-            if (!isFadingOut) // Prevent multiple fade-out calls
-            {
-                StartCoroutine(FadeOutAndDestroy());
-            }
+                if (!isFadingOut) 
+                {
+                    isFadingOut = true; // Prevent multiple fade calls early
+
+                    if (startScreenAnimation != null)
+                    {
+                        // Ensure we don't subscribe multiple times
+                        startScreenAnimation.OnAnimationsComplete -= FadeOutAndDestroyWrapper;
+                        startScreenAnimation.OnAnimationsComplete += FadeOutAndDestroyWrapper;
+                    }
+                    else
+                    {
+                    // StartCoroutine(FadeOutAndDestroy());
+                    }
+                }
         }
+    private void FadeOutAndDestroyWrapper()
+{
+    StartCoroutine(FadeOutAndDestroy());
+}
 
         private IEnumerator FadeOutAndDestroy()
         {
@@ -87,7 +102,7 @@ namespace Watermelon
             // loadingText.color = new Color(textColor.r, textColor.g, textColor.b, 0f);
             // backgroundImage.color = new Color(bgColor.r, bgColor.g, bgColor.b, 0f);
 
-            yield return new WaitForSeconds(0.01f); // Small delay to ensure fade-out
+            yield return new WaitForSeconds(0.1f); // Small delay to ensure fade-out
             Destroy(gameObject); // **Remove loading screen fully**
         }
     }

@@ -9,143 +9,187 @@ public class StartScreenAnimation : MonoBehaviour
     public Image light1;
     public Image light2;
     public TextMeshProUGUI loadingText;
-    
+
     public Transform base1; // Watermelon
     public Transform base2; // Orange
     public Transform base3; // Capsicum
     public Transform tile;  // TILE image
 
-    private float animationDuration = 3.5f;
+    private float animationDuration = 4.5f;
+    private bool isAnimating = true;
 
-    private Coroutine lightCoroutine;
-    private Coroutine textCoroutine;
-    private Coroutine base1Coroutine, base2Coroutine, base3Coroutine;
-    private Coroutine tileCoroutine;
+    public event System.Action OnAnimationsComplete;
 
     void Start()
     {
         StartCoroutine(BouncyLogoEffect());
-        lightCoroutine = StartCoroutine(BlinkLights());
-        textCoroutine = StartCoroutine(PulseLoadingText());
+        StartCoroutine(BlinkLights());
+        StartCoroutine(PulseLoadingText());
+        StartCoroutine(RandomBouncyMovement(base1));
+        StartCoroutine(RandomBouncyMovement(base2));
+        StartCoroutine(RandomBouncyMovement(base3));
+        StartCoroutine(TileFloatingMotion());
 
-        base1Coroutine = StartCoroutine(RandomBouncyMovement(base1));
-        base2Coroutine = StartCoroutine(RandomBouncyMovement(base2));
-        base3Coroutine = StartCoroutine(RandomBouncyMovement(base3));
-        
-        tileCoroutine = StartCoroutine(TileFloatingMotion());
-
-        Invoke(nameof(StopAnimations), animationDuration);
+        StartCoroutine(AnimationSequence()); // Master timer
     }
 
-    // Logo Bouncy Scale-In Effect
-    IEnumerator BouncyLogoEffect()
+    // Master Timer: Stops animations after full duration
+    private IEnumerator AnimationSequence()
     {
-        logo.transform.localScale = Vector3.zero;
-        float time = 0f;
-        float duration = 1f;
-        Vector3 targetScale = Vector3.one;
-
-        while (time < duration)
-        {
-            time += Time.deltaTime;
-            float t = time / duration;
-            float bounce = Mathf.Sin(t * Mathf.PI * 2) * (1 - t);
-            logo.transform.localScale = Vector3.LerpUnclamped(Vector3.zero, targetScale, t + bounce);
-            yield return null;
-        }
-        logo.transform.localScale = targetScale;
+        yield return new WaitForSeconds(animationDuration);
+        isAnimating = false;
+        StopAnimations();
+        OnAnimationsComplete?.Invoke();
     }
 
-    // Blinking Lights Effect (Only One Light is ON at a Time)
+    // Bouncy Logo Scale Effect (Smooth without jerks)
+   IEnumerator BouncyLogoEffect()
+{
+    logo.transform.localScale = Vector3.zero;
+    Vector3 targetScale = Vector3.one;
+    float startTime = Time.time;
+    float speedMultiplier = 1f; // Bounce speed remains constant
+
+    while (isAnimating)
+    {
+        float elapsed = Time.time - startTime; // Keep original time
+        float t = Mathf.Clamp01(elapsed / animationDuration);
+        float bounce = Mathf.Sin(elapsed * Mathf.PI * 2 * speedMultiplier) * 0.1f; // Constant bounce
+
+        logo.transform.localScale = Vector3.LerpUnclamped(Vector3.one * 0.5f, targetScale, t) + new Vector3(bounce, bounce, 0);
+        yield return null;
+    }
+
+    logo.transform.localScale = targetScale;
+}
+
+
+
+    // Blinking Lights Effect
     IEnumerator BlinkLights()
     {
         bool isLight1On = true;
-
-        while (true)
+        while (isAnimating)
         {
             light1.enabled = isLight1On;
             light2.enabled = !isLight1On;
-            
-            isLight1On = !isLight1On; // Toggle state
-            
-            yield return new WaitForSeconds(0.4f);
+            isLight1On = !isLight1On;
+            yield return new WaitForSeconds(0.7f);
         }
+        light1.enabled = false;
+        light2.enabled = false;
     }
 
-    // Pulsing "Loading..." Text Effect
+    // Pulsing "Loading..." Text
     IEnumerator PulseLoadingText()
     {
-        float time = 0f;
-        while (true)
+        float startTime = Time.time;
+        while (isAnimating)
         {
-            time += Time.deltaTime;
-            float scale = 1f + Mathf.Sin(time * 4f) * 0.1f;
+            float elapsed = Time.time - startTime;
+            float scale = 1f + Mathf.Sin(elapsed * Mathf.PI * 2) * 0.1f;
             loadingText.transform.localScale = new Vector3(scale, scale, 1f);
             yield return null;
         }
+        loadingText.transform.localScale = Vector3.one;
     }
 
-    // Floating Motion for TILE Image
-    IEnumerator TileFloatingMotion()
+    // Floating Motion for TILE (No sudden jumps)
+   IEnumerator TileFloatingMotion()
+{
+    Debug.Log("Tile animation started"); 
+    Vector3 startPos = tile.position; 
+    Quaternion startRot = tile.rotation; 
+    Vector3 startScale = tile.localScale; 
+
+    float floatStrength = 3f; 
+    float tiltStrength = 1.5f; 
+    float scaleStrength = 0.05f; 
+    float speedMultiplier = 0.1f; // ✅ Increase speed by adjusting this
+
+    float startTime = Time.time;
+
+    while (isAnimating)
     {
-        Vector3 startPos = tile.localPosition;
-        float floatStrength = 10f; // Adjust for more/less motion
-        float speed = 1.5f; // Adjust speed
+        float elapsed = (Time.time - startTime) * speedMultiplier; // ✅ Faster animation
 
-        while (true)
-        {
-            float newY = startPos.y + Mathf.Sin(Time.time * speed) * floatStrength;
-            tile.localPosition = new Vector3(startPos.x, newY, startPos.z);
-            yield return null;
-        }
+        // ✅ Faster Floating motion
+        float newY = startPos.y + Mathf.Sin(elapsed * Mathf.PI * 4) * floatStrength; 
+
+        // ✅ Faster Tilting motion
+        float tiltAngle = Mathf.Sin(elapsed * Mathf.PI * 3) * tiltStrength;
+        Quaternion newRotation = startRot * Quaternion.Euler(0, 0, tiltAngle); 
+
+        // ✅ Faster Zoom-in/Zoom-out effect
+        float scaleFactor = 1f + Mathf.Sin(elapsed * Mathf.PI * 2) * scaleStrength;
+        Vector3 newScale = startScale * scaleFactor;
+
+        // ✅ Apply transformations
+        tile.position = new Vector3(startPos.x, newY, startPos.z);
+        tile.rotation = newRotation;
+        tile.localScale = newScale;
+
+        yield return null;
     }
 
-    // Random Bouncy Motion for Fruits
-    IEnumerator RandomBouncyMovement(Transform obj)
+    // ✅ Reset position, rotation, and scale after stopping
+    tile.position = startPos;
+    tile.rotation = startRot;
+    tile.localScale = startScale;
+}
+
+
+
+
+    public void UpdateAnimation(float progress) 
+{
+    // Add animation update logic here if needed
+}
+
+    // Bouncing Motion for Fruits (Smooth movement)
+  IEnumerator RandomBouncyMovement(Transform obj)
+{
+    Debug.Log(obj.name + " animation started"); // ✅ Debugging Check
+    Vector3 startPos = obj.position;
+
+    float speedMultiplierX = Random.Range(2f, 3f); // ✅ Unique horizontal speed
+    float speedMultiplierY = Random.Range(2f, 3f); // ✅ Unique vertical speed
+    float bounceHeight = Random.Range(5f, 10f); // ✅ Unique bounce intensity
+    float movementRangeX = Random.Range(5f, 15f); // ✅ Unique X movement range
+    float movementRangeY = Random.Range(5f, 15f); // ✅ Unique Y movement range
+    float startTime = Time.time; // ✅ Each object starts independently
+
+    while (isAnimating)
     {
-        Vector3 startPos = obj.localPosition;
-        Vector3 randomDirection = new Vector3(
-            Random.Range(-30f, 30f), // X direction (left or right)
-            Random.Range(15f, 40f),  // Y direction (upwards movement)
-            0
-        );
+        float elapsed = Time.time - startTime;
+        if (elapsed >= animationDuration) // ✅ Stops at exact duration
+            break;
 
-        float time = 0f;
-        float duration = Random.Range(1.2f, 2f); // Random bounce speed
+        // ✅ Independent smooth movement for each object
+        float moveX = Mathf.Sin(elapsed * Mathf.PI * 2 * speedMultiplierX / animationDuration) * movementRangeX;
+        float moveY = Mathf.Cos(elapsed * Mathf.PI * 2 * speedMultiplierY / animationDuration) * movementRangeY;
+        float bounce = Mathf.Sin(elapsed * Mathf.PI * 2 / animationDuration) * bounceHeight;
 
-        while (time < duration)
-        {
-            time += Time.deltaTime;
-            float t = time / duration;
-            float bounce = Mathf.Sin(t * Mathf.PI * 2) * (1 - t) * 15f; // Bounce effect
-            obj.localPosition = Vector3.Lerp(startPos, startPos + randomDirection, t) + new Vector3(0, bounce, 0);
-            yield return null;
-        }
-
-        obj.localPosition = startPos + randomDirection; // Final position after bouncing
+        obj.position = startPos + new Vector3(moveX, moveY + bounce, 0);
+        yield return null;
     }
+
+    obj.position = startPos; // ✅ Reset position after stopping
+}
+
+
+
 
     // Stop all animations
-    public void StopAnimations() // Made public for external access
+    public void StopAnimations()
     {
-        if (lightCoroutine != null) StopCoroutine(lightCoroutine);
-        if (textCoroutine != null) StopCoroutine(textCoroutine);
-        if (base1Coroutine != null) StopCoroutine(base1Coroutine);
-        if (base2Coroutine != null) StopCoroutine(base2Coroutine);
-        if (base3Coroutine != null) StopCoroutine(base3Coroutine);
-        if (tileCoroutine != null) StopCoroutine(tileCoroutine);
+        isAnimating = false;
+        StopAllCoroutines();
 
         light1.enabled = false;
         light2.enabled = false;
         loadingText.transform.localScale = Vector3.one;
-        tile.localPosition = tile.localPosition; // Stop at last position
 
         Debug.Log("All animations stopped!");
-    }
-
-    // Update function to sync animation with loading progress
-    public void UpdateAnimation(float progress)
-    {
-       // loadingText.text = $"Loading {Mathf.RoundToInt(progress * 100)}%";
     }
 }
