@@ -7,7 +7,7 @@ namespace Watermelon
 {
     public class LoadingGraphics : MonoBehaviour
     {
-        [SerializeField] TextMeshProUGUI loadingText;
+       
         [SerializeField] Image backgroundImage;
         [SerializeField] CanvasScaler canvasScaler;
         [SerializeField] Camera loadingCamera;
