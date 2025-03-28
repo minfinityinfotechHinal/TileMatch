@@ -110,31 +110,41 @@ namespace Watermelon
 
         #region Tap To Play Label
 
-        public void ShowTapToPlay(bool immediately = false)
+       public void ShowTapToPlay(bool immediately = false)
         {
             if (tapToPlayPingPong != null && tapToPlayPingPong.IsActive)
-                tapToPlayPingPong.Kill();
+                return; // Prevent stopping an ongoing effect
 
             if (immediately)
             {
                 tapToPlayRect.localScale = Vector3.one;
-
-                tapToPlayPingPong = tapToPlayRect.transform.DOPingPongScale(1.0f, 1.05f, 0.9f, Ease.Type.QuadIn, Ease.Type.QuadOut, unscaledTime: true);
-
+                StartPingPongEffect();
                 return;
             }
 
             // RESET
             tapToPlayRect.localScale = Vector3.zero;
 
-            tapToPlayRect.DOPushScale(Vector3.one * 1.2f, Vector3.one, 0.35f, 0.2f, Ease.Type.CubicOut, Ease.Type.CubicIn).OnComplete(delegate
+            tapToPlayRect.DOPushScale(Vector3.one * 1.2f, Vector3.one, 0.35f, 0.2f, Ease.Type.CubicOut, Ease.Type.CubicIn).OnComplete(() =>
             {
-
-                tapToPlayPingPong = tapToPlayRect.transform.DOPingPongScale(1.0f, 1.05f, 0.9f, Ease.Type.QuadIn, Ease.Type.QuadOut, unscaledTime: true);
-
+                StartPingPongEffect();
             });
-
         }
+
+       private void StartPingPongEffect()
+    {
+        if (tapToPlayPingPong != null && tapToPlayPingPong.IsActive)
+            return;
+
+        void RestartPingPong()
+        {
+            tapToPlayPingPong = tapToPlayRect.transform.DOPingPongScale(1.0f, 1.05f, 0.9f, Ease.Type.QuadIn, Ease.Type.QuadOut, unscaledTime: true);
+            tapToPlayPingPong.OnComplete(RestartPingPong); // Restart on complete
+        }
+
+        RestartPingPong();
+    }
+
 
         public void HideTapToPlayButton(bool immediately = false)
         {
