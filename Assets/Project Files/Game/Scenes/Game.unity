@@ -10135,6 +10135,41 @@ PrefabInstance:
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
       objectReference: {fileID: 0}
+    - target: {fileID: 5446801590092838754, guid: 1582c4aaa5a0e3541bd669f9af9b2f90,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446801590092838754, guid: 1582c4aaa5a0e3541bd669f9af9b2f90,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446801590092838754, guid: 1582c4aaa5a0e3541bd669f9af9b2f90,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446801590092838754, guid: 1582c4aaa5a0e3541bd669f9af9b2f90,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446801590092838754, guid: 1582c4aaa5a0e3541bd669f9af9b2f90,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446801590092838754, guid: 1582c4aaa5a0e3541bd669f9af9b2f90,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446801590092838754, guid: 1582c4aaa5a0e3541bd669f9af9b2f90,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
     - target: {fileID: 5940119749128007493, guid: 1582c4aaa5a0e3541bd669f9af9b2f90,
         type: 3}
       propertyPath: m_Color.a
@@ -10169,6 +10204,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163581491899216482, guid: 1582c4aaa5a0e3541bd669f9af9b2f90,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9078966963818446832, guid: 1582c4aaa5a0e3541bd669f9af9b2f90,
         type: 3}
