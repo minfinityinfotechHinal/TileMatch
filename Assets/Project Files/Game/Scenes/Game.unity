@@ -5632,7 +5632,7 @@ PrefabInstance:
     - target: {fileID: 8736858121322406807, guid: f498ec5c4d8606d44b8576c76181fe5a,
         type: 3}
       propertyPath: m_Spacing
-      value: 34
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4511003059465107833, guid: f498ec5c4d8606d44b8576c76181fe5a, type: 3}
