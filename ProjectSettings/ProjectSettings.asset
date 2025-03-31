@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: TileMatch
+  productName: Tile Trifecta
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -933,11 +933,11 @@ PlayerSettings:
     ErrorHub: 0
     Game Performance: 0
     Hub: 0
-    Legacy Analytics: 1
+    Legacy Analytics: 0
     Purchasing: 0
     UDP: 0
     UNet: 1
-    Unity Ads: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -959,10 +959,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 7ffc8012-4aba-4d0d-aae1-cacd818b96d9
+  cloudProjectId: 0a55bfdc-9859-4c71-9688-e5007a1f241c
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: TileMatch
+  projectName: Tile Trifecta
   organizationId: fabulousfungames
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
