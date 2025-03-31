@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: MfinityInfotech
   productName: Tile Trifecta
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -141,7 +141,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 1.1.0
+  bundleVersion: '1.0.0 '
   preloadedAssets:
   - {fileID: -944628639613478452, guid: 1da06fb2a2627aa4ab453259577aa53e, type: 3}
   - {fileID: 11400000, guid: de1821ecad3716047bbfc5a595a0f9b9, type: 2}
@@ -166,7 +166,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.4
   androidMinAspectRatio: 1
   applicationIdentifier:
-    Android: com.DefaultCompany.TileMatch
+    Android: com.MfinityInfotech.TileTrifecta
     Standalone: com.Templates.Template
     iPhone: com.WatermelonGames.WatermelonCore
   buildNumber:
@@ -270,8 +270,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 2
   AndroidSplashScreenScale: 2
   androidSplashScreen: {fileID: 2800000, guid: 16d5b1c847ad34693af2d41f63df2578, type: 3}
-  AndroidKeystoreName: '{inproject}: '
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: '{dedicated}: Desktop/tiletrifecta.keystore'
+  AndroidKeyaliasName: tiletrifecta
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidEnableArm64MTE: 0
   AndroidBuildApkPerCpuArchitecture: 0
@@ -280,7 +280,7 @@ PlayerSettings:
   AndroidEnableTango: 0
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
-  androidUseCustomKeystore: 0
+  androidUseCustomKeystore: 1
   m_AndroidBanners:
   - width: 320
     height: 180
@@ -843,7 +843,7 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Android: MODULE_INPUT_SYSTEM;MODULE_TMP;MODULE_MONETIZATION;MODULE_POWERUPS;MODULE_HAPTIC
+    Android: MODULE_INPUT_SYSTEM;MODULE_TMP;MODULE_MONETIZATION;MODULE_POWERUPS;MODULE_HAPTIC;MODULE_IAP
     Standalone: MODULE_INPUT_SYSTEM;MODULE_TMP;MODULE_MONETIZATION;MODULE_POWERUPS;MODULE_HAPTIC
   additionalCompilerArguments: {}
   platformArchitecture:
@@ -934,7 +934,7 @@ PlayerSettings:
     Game Performance: 0
     Hub: 0
     Legacy Analytics: 0
-    Purchasing: 0
+    Purchasing: 1
     UDP: 0
     UNet: 1
     Unity Ads: 0
